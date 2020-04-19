@@ -9,29 +9,29 @@
 	MSG1 	db		“Multiplier $r1”					      0.0.0.0 Function 1						
 	MSG2	db		“Multiplicand $r2”				              0.0.0.0 Function 2	
 
-	Mov $a3 <9>		9 in $a3						                            13.3.9.0		1101 0011 1001 0000
-	Cmp $a3 $r1 $a3		(if true) 1 in $a3					                8.3.1.3			1000 0011 0001 0011
-	Je $a3 <end> 		if 1 in $a3 end program				              	9.3.0.0			1001 0011 0000 0000
-	Cmp $a3 $r2 $a3		(if true) 1 in $a3					                8.3.2.3			1000 0011 0010 0011
-	Je $a3 <end> 		if 1 in $a3 end program					              8.3.0.0			1000 0011 0000 0000
+	Mov $a3 <9>		9 in $a3						      13.3.9.0		1101 0011 1001 0000
+	Cmp $a3 $r1 $a3		(if true) 1 in $a3					      8.3.1.3		1000 0011 0001 0011
+	Je $a3 <end> 		if 1 in $a3 end program				              9.3.0.0		1001 0011 0000 0000
+	Cmp $a3 $r2 $a3		(if true) 1 in $a3					      8.3.2.3		1000 0011 0010 0011
+	Je $a3 <end> 		if 1 in $a3 end program					      8.3.0.0		1000 0011 0000 0000
 
-	Mov $a3 <0>		(Move value of 0 into $a3)				              13.3.0.0		1101 0011 0000 0000
+	Mov $a3 <0>		(Move value of 0 into $a3)				      13.3.0.0		1101 0011 0000 0000
 	Mov $a4 <0> 		(Move value of 0 into $a4) 			              13.4.0.0		1101 0100 0000 0000
-	Mov $a6 <0>		(Move value of 0 into $a6)				              13.6.0.0		1101 0110 0000 0000
+	Mov $a6 <0>		(Move value of 0 into $a6)				      13.6.0.0		1101 0110 0000 0000
 	Mov $a5 <1> 		(Move value of 1 into $a5)			              13.5.1.0		1101 0101 0000 0000
-	Subt $a5 $a3 $a3	(Subtract $a5 from $a3 and store in $a3)		4.5.3.3			0100 0101 0011 0011
+	Subt $a5 $a3 $a3	(Subtract $a5 from $a3 and store in $a3)		      4.5.3.3		0100 0101 0011 0011
 
-	La $ip8 <loop> 		(Load Address $ip8 <loop>)				          14.8.0.0 Function 3	1110 1000 0000 0000
+	La $ip8 <loop> 		(Load Address $ip8 <loop>)				      14.8.0.0 Function 3	1110 1000 0000 0000
 	Add $r2 $a4 $a4 	(Add $r2 to $a4 and store in $a4)			      3.2.4.4			0011 0010 0100 0100
 	Add $r1 $r1 $a3		(Add $a3 to $r1 and store in $r1)			      3.1.1.3			0011 0001 0001 0011
 
-	Cmp $r1 $a6 $a6 	(Compare $r1 to $a6 & store 1 in $a6 if true) 		8.1.6.6			1000 0001 0110 0110
-	Je $a6 <done> 		(Jump to function <done> if $a6 is true (1)) 		  9.6.0.0	 Function 4	1001 0110 0000 0000
-	Je $ip8 <loop> $r1>0)	(Jump back to <loop>)	 				                15.8.1.0 Function 5	1111 1000 0001 0000
-	La $ip9 <done> 		(Load Address $ip1 <done>)				                14.9.0.0 Function 6	1110 1001 0000 0000
+	Cmp $r1 $a6 $a6 	(Compare $r1 to $a6 & store 1 in $a6 if true) 		      8.1.6.6			1000 0001 0110 0110
+	Je $a6 <done> 		(Jump to function <done> if $a6 is true (1)) 		      9.6.0.0 Function 4	1001 0110 0000 0000
+	Je $ip8 <loop> $r1>0)	(Jump back to <loop>)	 				      15.8.1.0 Function 5	1111 1000 0001 0000
+	La $ip9 <done> 		(Load Address $ip1 <done>)				      14.9.0.0 Function 6	1110 1001 0000 0000
 
-	MSG3 db 		“Answer MSG1 ASCII 42 MSG2 ASCII 61”			              0.0.0.0  Function 7	
+	MSG3 db 		“Answer MSG1 ASCII 42 MSG2 ASCII 61”			      0.0.0.0  Function 7	
 	Lea <MSG3> $AC		(Load Effective Address <MSG3> to $AC)			      10.0.0.0 Function 8	1010 0000 0000 0000	
-	Output	 		(Output AC to display)					                        12.0.0.0		        1100 0000 0000 0000
+	Output	 		(Output AC to display)					      12.0.0.0		        1100 0000 0000 0000
 
-	La $ip10 <end> 		End Program						                            14.10.0.0 Function 9	1110 1010 0000 0000
+	La $ip10 <end> 		End Program						      14.10.0.0 Function 9	1110 1010 0000 0000
